@@ -1,4 +1,7 @@
 <x-app-layout>
+    @if (Session::has('success'))
+    <div class="bg-green-500 rounded text-white text-center py-3 text-lg">{{ Session::get('success') }}</div>
+    @endif
     <form action="{{route('doctor.search')}}" method="post" class="container mx-auto my-5">
         @csrf
         <div class="p-4 flex flex-col items-center justify-center ">
@@ -40,7 +43,8 @@
                     <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                         {{$doctor->specialty}}
                     </p>
-                    @forelse($doctor->Clinc as $Clinc)
+
+                    @forelse($doctor->Clinc->unique('area')->values()->all() as $Clinc)
                     <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-sky-100 text-green-800">
                         {{$Clinc->area}}
                     </p>

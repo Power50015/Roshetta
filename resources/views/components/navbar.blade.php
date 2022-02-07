@@ -22,7 +22,7 @@
                             </a>
                         </li>
                         <li class="py-3 border-b">
-                            <a href="{{ route('dashboard') }}">لوحه التحكم</a>
+                            <a href="{{ route('reservation') }}">الحجوزات</a>
                         </li>
                         <li class="py-3 border-b">
                             <form method="POST" action="{{ route('logout') }}">

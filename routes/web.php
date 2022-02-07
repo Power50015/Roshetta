@@ -4,9 +4,11 @@ use App\Http\Controllers\ClincController;
 use App\Http\Controllers\DoctorAuthenticatedSessionController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\UserAuthenticatedSessionController;
 use App\Http\Controllers\UserController;
+
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
@@ -142,4 +144,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard',  [UserController::class, 'dashbordView'])->name('dashboard');
     Route::post('/dashboard',  [UserController::class, 'dashbordView'])->name('doctor.search');
     Route::get('/doctorprofile/{id}',  [UserController::class, 'showProfile']);
+    Route::post('/createreservation',  [ReservationController::class, 'create'])->name('create.reservation');
+    Route::get('/reservation',  [ReservationController::class, 'UserReservation'])->name('reservation');
 });

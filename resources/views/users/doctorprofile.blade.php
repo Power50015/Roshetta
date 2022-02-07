@@ -24,7 +24,11 @@
                                 <li>من :{{$schedule->from}}</li>
                                 <li>إلى : {{$schedule->to}}</li>
                             </ul>
-                            <form action="" method="post">
+                            <form action="{{route('create.reservation')}}" method="post">
+                                @csrf
+                                <input type="hidden" name="doctor" value=" {{$doctor->id}}">
+                                <input type="hidden" name="clinc" value=" {{$schedule->clinc}}">
+                                <input type="hidden" name="schedules" value="{{$schedule->id}}">
                                 <button type="submit" class="btn-second mt-5">حجز</button>
                             </form>
                         </div>
