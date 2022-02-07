@@ -72,12 +72,12 @@ class DoctorAuthenticatedSessionController extends Controller
      * @param  \Laravel\Fortify\Contracts\CreatesNewUsers  $creator
      * @return \Laravel\Fortify\Contracts\RegisterResponse
      */
-    public function registerstore(Request $request, CreatesNewUsers $creator): RegisterResponse
+    public function registerstore(Request $request, CreatesNewUsers $creator)
     {
         event(new Registered($user = $creator->create($request->all())));
 
         $this->guard->login($user);
-        return app(RegisterResponse::class);
+        return redirect()->route('doctor.login');
     }
     /**
      * Show the login view.

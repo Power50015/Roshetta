@@ -1,7 +1,7 @@
 <x-app-layout>
     <section class="w-full top-doctor bg-gray-200 py-9">
         <div class="container mx-auto">
-            <div class="grid grid-cols-2">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
                 <div class="mx-3">
                     <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
                         <img src=" {{$doctor->profile_photo_url}}" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="w-full h-[750px] object-center object-cover group-hover:opacity-75">
@@ -9,8 +9,11 @@
                     <h3 class="mt-4 text-2xl text-gray-700">
                         {{$doctor->name}}
                     </h3>
-                    <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    <p class="p-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                         {{$doctor->specialty}}
+                    </p>
+                    <p class="p-2 inline-flex text-lg leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                        {{$doctor->phone}}
                     </p>
                 </div>
                 <div class="grid grid-rows-2 gap-4">

@@ -21,9 +21,9 @@
                                 {{ Auth::user()->name }}
                             </a>
                         </li>
-                        <li class="py-3 border-b">
-                            <a href="{{ route('reservation') }}">الحجوزات</a>
-                        </li>
+                        @if(Auth::guard('web')->check()) <li class="py-3 border-b">
+                       <a href="{{ route('reservation') }}">الحجوزات</a>
+                        </li> @endif
                         <li class="py-3 border-b">
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -52,7 +52,7 @@
 <div class="bg-blue-600 w-full">
     <div class="container mx-auto">
         <ul class="flex justify-around py-5 text-xl text-white">
-            <li><a href="#">التقيمات</a></li>
+            <li><a href="{{route('home')}}">الحجوزات</a></li>
             <li><a href="{{route('clinc.index')}}">العيادات</a></li>
             <li><a href="{{route('schedule.index')}}">المواعيد</a></li>
         </ul>

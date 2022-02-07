@@ -24,4 +24,12 @@ class ReservationController extends Controller
         $reservationData =  Reservation::with('clinc')->with('doctor')->with('schedules')->with('user')->where('user', Auth::id())->get();
         return view('users.reservation')->with('reservationdata', $reservationData);
     }
+    public function update(Request $request)
+    {
+        $reservation = Reservation::find($request['id']);
+        $reservation->states = $request['states'];
+        $reservation->save();
+
+        return back();
+    }
 }

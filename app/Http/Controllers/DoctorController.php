@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class DoctorController extends Controller
 {
-
+    public function index()
+    {
+        $reservationData =  Reservation::with('clinc')->with('doctor')->with('schedules')->with('user')->where('doctor', Auth::id())->orderBy("states")->get();
+        return view('doctors.dashboard')->with('reservationdata', $reservationData);
+    }
     public function profileView(Request $request)
     {
         // dd($request->user());
@@ -59,5 +64,4 @@ class DoctorController extends Controller
 
         return back();
     }
-
 }

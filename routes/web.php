@@ -51,9 +51,8 @@ Route::group(['prefix' => 'doctor'], function () {
     });
 
     Route::group(['middleware' => ['auth:sanctum,doctor', 'verified']], function () {
-        Route::get('/dashboard', function () {
-            return view('doctors.dashboard');
-        })->name('doctor.dashboard');
+        Route::get('/dashboard', [DoctorController::class,'index'])->name('doctor.dashboard');
+        Route::put('/reservation',  [ReservationController::class, 'update'])->name('reservation.states');
         Route::get('profile', [DoctorController::class, 'profileView'])
             ->name('doctor.profile');
         Route::put('/doctor/profile-img', [DoctorController::class, 'profileImgUpdate'])->name('doctor-profile-img.update');
