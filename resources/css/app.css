@@ -1,0 +1,32 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.btn,
+.btn-main,
+.btn-second {
+    @apply inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md  focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+.btn-main {
+    @apply text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-500;
+}
+.btn-second {
+    @apply text-blue-500 bg-blue-100 hover:bg-blue-50 focus:ring-blue-50;
+}
+header {
+    background-image: url("../img/header.jpg");
+    @apply h-[80vh] w-full bg-cover bg-fixed;
+}
+.header-content {
+    @apply w-full h-full bg-gradient-to-t from-cyan-500/[.50] to-blue-500 flex flex-col	 items-center justify-center;
+}
+.header-btn{
+    @apply mt-9 px-8 py-3 text-base font-medium rounded-md text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-l md:py-4 md:text-lg md:px-10;
+}
+.form-page {
+    background-image: url("../img/header.jpg");
+    @apply bg-cover bg-fixed;
+}
+.form-page-content {
+    @apply  bg-gradient-to-t from-cyan-500/[.50] to-blue-500 flex flex-col	 items-center justify-center;
+}
