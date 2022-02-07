@@ -59,4 +59,5 @@ class DoctorController extends Controller
 
         return back();
     }
+
 }

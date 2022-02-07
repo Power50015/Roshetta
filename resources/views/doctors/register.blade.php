@@ -40,12 +40,12 @@
                         <input value="passwordpassword" type="password" name="password_confirmation" id="password_confirmation" class="w-full rounded">
                     </div>
                     <div class="p-4 flex items-center justify-center">
-                        <label for="password_confirmation" class="w-2/6 text-sky-100">التخصص</label>
+                        <label for="specialty" class="w-2/6 text-sky-100">التخصص</label>
                         <select name="specialty" id="specialty" class="w-full rounded">
-                            <option value="internal">امراض باطنه</option>
-                            <option value="dentistry">اسنان</option>
-                            <option value="bones">عظام</option>
-                            <option value="Physicaltherapy">علاج طبيعى</option>
+                            <option value="امراض باطنه">امراض باطنه</option>
+                            <option value="اسنان">اسنان</option>
+                            <option value="عظام">عظام</option>
+                            <option value="علاج طبيعى">علاج طبيعى</option>
                         </select>
                     </div>
                     <button type="submit" class="btn-main mt-8 mx-5">تسجيل</button>

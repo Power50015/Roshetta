@@ -6,9 +6,11 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\UserAuthenticatedSessionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
+use Laravel\Fortify\Http\Controllers\PasswordController;
 use Laravel\Fortify\Http\Controllers\ProfileInformationController;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 
@@ -135,6 +137,9 @@ Route::group(['middleware' => config('jetstream.middleware', ['web'])], function
 
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('users.dashboard');
-})->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',  [DoctorController::class, 'dashbordView'])->name('dashboard');
+Route::group(['middleware' => ['auth', 'verified']], function () {
+    Route::get('/dashboard',  [UserController::class, 'dashbordView'])->name('dashboard');
+    Route::post('/dashboard',  [UserController::class, 'dashbordView'])->name('doctor.search');
+    Route::get('/doctorprofile/{id}',  [UserController::class, 'showProfile']);
+});

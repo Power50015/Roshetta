@@ -11,8 +11,8 @@ class IndexController extends Controller
     {
         if (Auth::guard('doctor')->check())
             return redirect()->route('doctor.dashboard');
-        elseif (Auth::guard('doctor')->check())
-            return redirect()->route('users.dashboard');
+        elseif (Auth::guard('web')->check())
+            return redirect()->route('dashboard');
         else
             return view('index');
     }

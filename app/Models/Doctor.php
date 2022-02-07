@@ -60,4 +60,9 @@ class Doctor extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function clinc()
+    {
+        return $this->hasMany(Clinc::class, 'doctor');
+    }
 }
