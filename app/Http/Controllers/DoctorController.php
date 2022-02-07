@@ -59,32 +59,4 @@ class DoctorController extends Controller
 
         return back();
     }
-
-    public function showProfile($id)
-    {
-        return Doctor::find($id);
-    }
-
-    public function dashbordView(Request $request)
-    {
-        if ($request["specialty"] && $request["area"]) {
-            
-            $doctorsData =  Doctor::whereHas('clinc', function ($area) use ($request) {
-                $area->where('area', $request["area"]);
-            })->where('specialty', $request["specialty"])->get();
-        
-        } elseif ($request["specialty"]) {
-
-            $doctorsData = Doctor::where('specialty', $request["specialty"])->get();
-            
-        } elseif ($request["area"]) {
-            $doctorsData = Doctor::whereHas('clinc', function ($area) use ($request) {
-                $area->where('area', $request["area"]);
-            })->get();
-        } else {
-            $doctorsData = Doctor::get();
-        }
-
-        return view('users.dashboard')->with('doctors', $doctorsData);
-    }
 }

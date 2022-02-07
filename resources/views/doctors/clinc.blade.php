@@ -11,7 +11,7 @@
         <form action="{{route('clinc.store')}}" method="post">
             @csrf
             <div class="p-4 flex items-center justify-center">
-                <label for="area" class="w-2/6">المنطقه</label>
+                <label for="area" class="w-2/6">التخصص</label>
                 <select name="area" id="area" class="w-full rounded">
                     <option value="القاهرة">القاهرة</option>
                     <option value="الجيزه">الجيزه</option>

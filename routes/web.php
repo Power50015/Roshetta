@@ -135,9 +135,6 @@ Route::group(['middleware' => config('jetstream.middleware', ['web'])], function
 
 
 
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',  [DoctorController::class, 'dashbordView'])->name('dashboard');
-Route::group(['middleware' => ['auth', 'verified']], function () {
-
-    Route::get('/dashboard',  [DoctorController::class, 'dashbordView'])->name('dashboard');
-    Route::post('/dashboard',  [DoctorController::class, 'dashbordView'])->name('doctor.search');
-});
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('users.dashboard');
+})->name('dashboard');
